@@ -34,13 +34,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying"
-                sh '''
-                sudo systemctl start jenkins-deployment-gunicorn.socket
-                sudo systemctl enable jenkins-deployment-gunicorn.socket
-                sudo systemctl start jenkins-deployment-gunicorn.service
-                sudo systemctl enable jenkins-deployment-gunicorn.service
-                sudo systemctl status jenkins-deployment-gunicorn.service
-                '''
+                dir('/root/frs_cicd') {
+                    sh '''
+                    sudo systemctl start jenkins-deployment-gunicorn.socket
+                    sudo systemctl enable jenkins-deployment-gunicorn.socket
+                    sudo systemctl start jenkins-deployment-gunicorn.service
+                    sudo systemctl enable jenkins-deployment-gunicorn.service
+                    sudo systemctl status jenkins-deployment-gunicorn.service
+                    '''
+                }
             }
         }
         
