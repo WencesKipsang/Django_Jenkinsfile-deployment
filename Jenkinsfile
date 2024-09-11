@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git']])
-                sh 'cd  /root/frs_cicd'
-                sh 'git clone https://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git'               
+                sh "cd  /root/frs_cicd  git branch: 'main', url: 'erthyjklhttps://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git'"
+                              
             }
         }
         
