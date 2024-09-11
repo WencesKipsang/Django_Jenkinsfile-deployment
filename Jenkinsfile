@@ -4,8 +4,12 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                sh "cd  /root/frs_cicd  git branch: 'main', url: 'erthyjklhttps://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git'"
-                              
+                script {
+                    dir('/root/frs_cicd') {
+                        git branch: 'main', url: 'https://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git'                        
+                    } 
+                }              
+
             }
         }
         
