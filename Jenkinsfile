@@ -22,7 +22,9 @@ pipeline {
                         . CiEnv/bin/activate
                         echo "Virtual environment activated"
                         cd /root/frs_cicd/CICD
-                        echo 'hey'
+                        pip install -r requirements.txt
+                        python manage.py makemigrations
+                        python manage.py migrate
                         '''
                     } 
                 }
