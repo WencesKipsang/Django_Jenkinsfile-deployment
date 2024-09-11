@@ -16,6 +16,14 @@ pipeline {
         stage('deploy') {
             steps {
                 echo "Deploying"
+                script {
+                    dir('/root/frs_cicd') {
+                        sh 'source CiEnv/bin/activate'                       
+                        dir('/root/frs_cicd/Django_Jenkinsfile-deployment') {
+                            echo 'hey'                       
+                        }
+                    } 
+                }
 
 
             }
