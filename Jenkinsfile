@@ -18,7 +18,7 @@ pipeline {
                 echo "Deploying"
                 script {
                     dir('/root/frs_cicd') {
-                        sh 'source CiEnv/bin/activate' 
+                        source  CiEnv/bin/activate
                         echo "Virtual environment activated"                      
                         dir('/root/frs_cicd/CICD') {
                             echo 'hey'                       
