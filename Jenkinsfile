@@ -12,17 +12,7 @@ pipeline {
         
         stage('deploy') {
             steps {
-                echo "Deploying"
-
-                sh 'cd  /frs_cicd'
-                sh 'source CiEnv/bin/activate'
-                sh 'pip3 install -r requirements.txt'
-                sh 'cd  /frs_cicd/Django_Jenkinsfile-deployment'
-                sh 'python3 manage.py makemigrations'
-                sh 'python3 manage.py migrate'
-
-
-
+               
             }
         }
         
