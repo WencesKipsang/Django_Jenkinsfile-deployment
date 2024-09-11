@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('checkout') {
             steps {
                 checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git']])
             }
@@ -22,7 +22,7 @@ pipeline {
         
         stage('Release') {
             steps {
-                echo "releasing"
+                echo "Releasing"
             }
         }
     }
