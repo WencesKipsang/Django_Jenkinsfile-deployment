@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('checkout') {
+        stage('Checkout') {
             steps {
                 script {
                     dir('/root/frs_cicd/CICD') {
@@ -13,9 +13,9 @@ pipeline {
             }
         }
         
-        stage('deploy') {
+        stage('Build') {
             steps {
-                echo "Deploying"
+                echo "Building"
                 script {
                     dir('/root/frs_cicd') {
                         sh '''
@@ -28,14 +28,19 @@ pipeline {
                         '''
                     } 
                 }
-
-
             }
         }
         
-        stage('Test') {
+        stage('Deploy') {
             steps {
-                echo "Testing"
+                echo "Deploying"
+                sh '''
+                sudo systemctl start jenkins-deployment-gunicorn.socket
+                sudo systemctl enable jenkins-deployment-gunicorn.socket
+                sudo systemctl start jenkins-deployment-gunicorn.service
+                sudo systemctl enable jenkins-deployment-gunicorn.service
+                sudo systemctl status jenkins-deployment-gunicorn.service
+                '''
             }
         }
         
