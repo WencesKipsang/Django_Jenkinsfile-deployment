@@ -5,7 +5,7 @@ pipeline {
         stage('checkout') {
             steps {
                 script {
-                    dir('/root/frs_cicd') {
+                    dir('/root/frs_cicd/CICD') {
                         git branch: 'main', url: 'https://github.com/WencesKipsang/Django_Jenkinsfile-deployment.git'                        
                     } 
                 }              
@@ -19,7 +19,7 @@ pipeline {
                 script {
                     dir('/root/frs_cicd') {
                         sh 'source CiEnv/bin/activate'                       
-                        dir('/root/frs_cicd/Django_Jenkinsfile-deployment') {
+                        dir('/root/frs_cicd/CICD') {
                             echo 'hey'                       
                         }
                     } 
