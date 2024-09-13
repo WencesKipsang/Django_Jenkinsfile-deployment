@@ -41,6 +41,7 @@ pipeline {
                     sudo systemctl start jenkins-deployment-gunicorn.service
                     sudo systemctl enable jenkins-deployment-gunicorn.service
                     sudo systemctl status jenkins-deployment-gunicorn.service
+                    sudo systemctl restart jenkins-deployment-gunicorn.service
                     '''
                     
                 }
