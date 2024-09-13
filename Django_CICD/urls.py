@@ -8,4 +8,5 @@ urlpatterns = [
     path('cicdJ/', include(you)),
 ]
 
-// usermod -a -G sudo jenkins
+
+# usermod -a -G sudo jenkins
